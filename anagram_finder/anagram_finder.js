@@ -1,7 +1,7 @@
 const AnagramFinder = function (word) {
   this.word = word;
-  this.wordSplit = this.splitWord(word.toUpperCase());
-}
+  this.wordSplit = word.toUpperCase().split('');
+};
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
   let wordMatch = this.wordsThatQualify(otherWords);
@@ -11,10 +11,6 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
   };
 
   return wordMatch;
-};
-
-AnagramFinder.prototype.splitWord = function (word) {
-  return word.split('');
 };
 
 AnagramFinder.prototype.wordsThatQualify = function (words) {
