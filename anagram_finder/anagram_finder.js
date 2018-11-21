@@ -4,13 +4,12 @@ const AnagramFinder = function (word) {
 }
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
-  wordMatch = [];
-  for (let word of otherWords) {
-    if (word === this.word) {break;};
-    if (word.length !== this.word.length) {break;};
-    otherWord = this.splitWord(word.toUpperCase());
+  const wordMatch = [];
+  for (const word of otherWords) {
+    if (this.checkWordQualifies(word)) {break;};
+    const otherWord = this.splitWord(word.toUpperCase());
     let wordCheck = true;
-    for (let letter of this.wordSplit) {
+    for (const letter of this.wordSplit) {
       wordCheck = otherWord.some(otherLetter => otherLetter === letter);
       if (wordCheck === false) {break;};
     };
@@ -22,6 +21,10 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
 
 AnagramFinder.prototype.splitWord = function (word) {
   return word.split('');
+};
+
+AnagramFinder.prototype.checkWordQualifies = function (word) {
+  if (word === this.word || word.length !== this.word.length) {return true;};
 };
 
 module.exports = AnagramFinder;
