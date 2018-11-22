@@ -5,11 +5,9 @@ const AnagramFinder = function (word) {
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
   let wordMatch = this.wordsThatQualify(otherWords);
-
   for (letter of this.wordSplit) {
     wordMatch = wordMatch.filter(word => word.toUpperCase().includes(letter));
   };
-
   return wordMatch;
 };
 

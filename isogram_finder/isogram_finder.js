@@ -1,5 +1,4 @@
 const IsogramFinder = function (word) {
-  this.word = word;
   this.wordSplit = word.toUpperCase().split('');
 };
 
